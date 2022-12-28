@@ -5,7 +5,9 @@ import Titles from './Titles';
 import { Routes, Route } from 'react-router-dom';
 import Home from '../Page/Home';
 import Signup from '../Page/Signup';
+import Login from '../Page/Login';
 import Footer from './Footer';
+import Forgotpassword from '../Page/Forgotpassword';
 
 const Layout = () => {
   return (
@@ -19,6 +21,8 @@ const Layout = () => {
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/signup' element={<Signup />}></Route>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/forgot-password' element={<Forgotpassword />}></Route>
         </Routes>
       </main>
       <footer>
