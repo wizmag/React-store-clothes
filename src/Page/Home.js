@@ -1,9 +1,9 @@
 import React from 'react';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Collection from '../Assets/Collection.jpg';
 import Sales from '../Assets/Sales.jpg';
 import Bags from '../Assets/Bags.jpg';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 
 const descript = [
   {
@@ -28,18 +28,24 @@ const descript = [
 
 const Home = () => {
   return (
-    <div className='w-full flex relative overflow-hidden'>
-      <div
-        className='hover:scale-110 cursor-pointer flex left-40 m-auto
-           items-center absolute top-0 bottom-0 z-10'
+    <div className='w-full px-20'>
+      <Carousel
+        showArrows={true}
+        showStatus={false}
+        swipeable={true}
+        emulateTouch={true}
+        thumbWidth={200}
+        showThumbs={true}
+        useKeyboardArrows={true}
       >
-        <ArrowBackIosIcon sx={{ fontSize: 50 }} />
-      </div>
-      <div className={`h-full flex transformvw`}>
         {descript.map((item) => (
           <section className='flex items-center w-screen' key={item.key}>
             <div className='h-full flex-1 pl-32'>
-              <img src={item.image} alt='img' className='max-h-[600px]'></img>
+              <img
+                src={item.image}
+                alt='img'
+                className='max-h-[600px] max-w-[550px]'
+              ></img>
             </div>
             <div className='flex-1'>
               <div className='flex flex-col items-start h-full pl-20 gap-20'>
@@ -52,16 +58,7 @@ const Home = () => {
             </div>
           </section>
         ))}
-      </div>
-      <div
-        className='hover:scale-110 cursor-pointer flex right-40 m-auto 
-           items-center absolute top-0 bottom-0 z-10'
-      >
-        <ArrowForwardIosIcon
-          sx={{ fontSize: 50 }}
-          className='hover:scale-110 cursor-pointer'
-        />
-      </div>
+      </Carousel>
     </div>
   );
 };
