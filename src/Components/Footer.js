@@ -3,7 +3,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 
-const company_item = ['About', 'Prtners', 'Requisites'];
+const company_item = ['About', 'Partners', 'Requisites'];
 const contacts_item = [
   '52 Forest Green, South palm 435',
   '+1 234 56 78',
@@ -12,13 +12,15 @@ const contacts_item = [
 
 const Footer = () => {
   return (
-    <div className='h-full flex justify-between px-10 py-6'>
+    <div className='h-full flex justify-between px-10 py-6 bg-shine1'>
       <section className='flex-1 flex justify-center'>
         <div>
           <div className='font-bold mb-3 italic'>Company</div>
           {company_item.map((item) => (
             <ul>
-              <li className='cursor-pointer hover:underline'>{item}</li>
+              <li className='cursor-pointer hover:underline' key={item}>
+                {item}
+              </li>
             </ul>
           ))}
         </div>
@@ -28,7 +30,9 @@ const Footer = () => {
           <div className='font-bold mb-3 italic'>Contacts</div>
           {contacts_item.map((item) => (
             <ul>
-              <li className='cursor-pointer hover:underline'>{item}</li>
+              <li className='cursor-pointer hover:underline' key={item}>
+                {item}
+              </li>
             </ul>
           ))}
         </div>
