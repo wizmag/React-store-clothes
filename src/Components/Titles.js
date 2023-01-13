@@ -3,6 +3,7 @@ import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../Context/Authcontext';
 import { ToastContainer, toast } from 'react-toastify';
+import Sticky from 'react-stickynode';
 
 const Titles = () => {
   const navigate = useNavigate();
@@ -26,8 +27,8 @@ const Titles = () => {
   };
 
   return (
-    <>
-      <div className='flex justify-between px-32 h-20 w-full border-b  sticky top-0 z-50 overflow-hidden bg-white'>
+    <Sticky enabled={true}>
+      <div className='flex justify-between px-32 h-20 w-full border-b z-50 bg-white opacity-100'>
         <div className='flex items-center '>
           <p
             className='text-4xl pl-10 font-bold cursor-pointer tracking-widest'
@@ -86,7 +87,7 @@ const Titles = () => {
         pauseOnHover
         theme='colored'
       />
-    </>
+    </Sticky>
   );
 };
 
