@@ -13,7 +13,6 @@ const Editdatabase = () => {
   const priceRef = useRef();
   const [isFetching, setIsFetching] = useState();
   const [isCategory, setIsCategory] = useState('');
-  const id = v4();
 
   const itemMenu = (item) => {
     setIsCategory(item);
@@ -21,6 +20,7 @@ const Editdatabase = () => {
 
   const itemHandler = async (e) => {
     e.preventDefault();
+    const id = v4();
     try {
       setIsFetching(true);
       const file = e.currentTarget.elements.files.files[0];
@@ -40,7 +40,7 @@ const Editdatabase = () => {
           await setDoc(doc(db, 'clothes', id), {
             id: id,
             category: isCategory,
-            title: nameRef.current.value,
+            name: nameRef.current.value,
             description: descrRef.current.value,
             price: +priceRef.current.value,
             imageURL: downloadURL,
