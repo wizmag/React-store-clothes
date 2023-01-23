@@ -31,6 +31,12 @@ const Layout = () => {
           <Route path='/shorts' element={<Clothes type='Shorts' />}></Route>
           <Route path='/jeans' element={<Clothes type='Jeans' />}></Route>
           <Route path='/other' element={<Clothes type='Other' />}></Route>
+          <Route
+            path='/newcollection'
+            element={<Clothes type='New Collection' />}
+          ></Route>
+          <Route path='/sales' element={<Clothes type='Sales' />}></Route>
+          <Route path='/bags' element={<Clothes type='Bags' />}></Route>
         </Routes>
       </main>
       <footer>

@@ -8,6 +8,9 @@ const category = [
   { name: 'Jeans' },
   { name: 'Shorts' },
   { name: 'Other' },
+  { name: 'New Collection' },
+  { name: 'Sales' },
+  { name: 'Bags' },
 ];
 
 const Dropmenuitem = (props) => {

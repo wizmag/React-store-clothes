@@ -6,6 +6,8 @@ const choiceTypeClothes = (type) => {
   return query(collection(db, 'clothes'), where('category', '==', type));
 };
 
+const discount = 0.5;
+
 const Clothes = ({ type }) => {
   const [data, setData] = useState([]);
   // console.log(data);
@@ -41,9 +43,20 @@ const Clothes = ({ type }) => {
               <div className='flex flex-col gap-1 items-center pb-2'>
                 <p className='font-bold text-2xl'>{item.name}</p>
                 <p className='text-sm'>{item.description}</p>
-                <p className='text-3xl font-bold text-green-600'>
-                  {item.price}$
-                </p>
+                {type === 'Sales' ? (
+                  <>
+                    <p className='text-3xl font-bold text-red-600 line-through'>
+                      {item.price}$
+                    </p>
+                    <p className='text-3xl font-bold text-green-600'>
+                      {item.price * discount}$
+                    </p>
+                  </>
+                ) : (
+                  <p className='text-3xl font-bold text-green-600'>
+                    {item.price}$
+                  </p>
+                )}
               </div>
             </div>
           ))}

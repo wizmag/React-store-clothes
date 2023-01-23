@@ -4,29 +4,34 @@ import Sales from '../Assets/Sales.jpg';
 import Bags from '../Assets/Bags.jpg';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
+import { useNavigate } from 'react-router-dom';
 
 const descript = [
   {
     title: 'New Collection',
     descr: 'New collection for 2023 year',
     image: Collection,
+    navigation: '/newcollection',
     key: 1,
   },
   {
     title: 'Sales',
     descr: 'Only this week. Hurry up!',
     image: Sales,
+    navigation: 'sales',
     key: 2,
   },
   {
     title: 'Bags',
     descr: 'Buy limited series of bags',
     image: Bags,
+    navigation: 'bags',
     key: 3,
   },
 ];
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className='w-full px-20'>
       <Carousel
@@ -51,7 +56,10 @@ const Home = () => {
               <div className='flex flex-col items-start h-full pl-20 gap-20'>
                 <p className='text-5xl font-bold'>{item.title}</p>
                 <p className='text-2xl my-12'>{item.descr}</p>
-                <button className='border-2 border-shine1 bg-black text-white px-10 py-5 font-bold rounded-lg active:animate-[pulses_0.5s_ease]'>
+                <button
+                  className='border-2 border-shine1 bg-black text-white px-10 py-5 font-bold rounded-lg active:animate-[pulses_0.5s_ease]'
+                  onClick={() => navigate(item.navigation)}
+                >
                   BUY NOW
                 </button>
               </div>
