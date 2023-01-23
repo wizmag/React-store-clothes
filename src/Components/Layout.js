@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Announcement from './Announcement';
 import Navbar from './Navbar';
 import Titles from './Titles';
@@ -10,8 +10,14 @@ import Footer from './Footer';
 import Forgotpassword from '../Page/Forgotpassword';
 import Clothes from '../Page/Clothes';
 import Editdatabase from '../Page/Editdatabase';
+import ClothesItem from '../Page/ClothesItem';
 
 const Layout = () => {
+  const [product, setProduct] = useState();
+
+  const handlerProduct = (item) => {
+    setProduct(item);
+  };
   return (
     <div className='h-screen w-full flex flex-col'>
       <header className='relative z-50'>
@@ -26,17 +32,46 @@ const Layout = () => {
           <Route path='/login' element={<Login />}></Route>
           <Route path='/forgot-password' element={<Forgotpassword />}></Route>
           <Route path='/editdb' element={<Editdatabase />}></Route>
-          <Route path='/overcoat' element={<Clothes type='Overcoat' />}></Route>
-          <Route path='/blouse' element={<Clothes type='Blouse' />}></Route>
-          <Route path='/shorts' element={<Clothes type='Shorts' />}></Route>
-          <Route path='/jeans' element={<Clothes type='Jeans' />}></Route>
-          <Route path='/other' element={<Clothes type='Other' />}></Route>
+          <Route
+            path='/overcoat'
+            element={
+              <Clothes productHandler={handlerProduct} type='Overcoat' />
+            }
+          ></Route>
+          <Route
+            path='/blouse'
+            element={<Clothes productHandler={handlerProduct} type='Blouse' />}
+          ></Route>
+          <Route
+            path='/shorts'
+            element={<Clothes productHandler={handlerProduct} type='Shorts' />}
+          ></Route>
+          <Route
+            path='/jeans'
+            element={<Clothes productHandler={handlerProduct} type='Jeans' />}
+          ></Route>
+          <Route
+            path='/other'
+            element={<Clothes productHandler={handlerProduct} type='Other' />}
+          ></Route>
           <Route
             path='/newcollection'
-            element={<Clothes type='New Collection' />}
+            element={
+              <Clothes productHandler={handlerProduct} type='New Collection' />
+            }
           ></Route>
-          <Route path='/sales' element={<Clothes type='Sales' />}></Route>
-          <Route path='/bags' element={<Clothes type='Bags' />}></Route>
+          <Route
+            path='/sales'
+            element={<Clothes productHandler={handlerProduct} type='Sales' />}
+          ></Route>
+          <Route
+            path='/bags'
+            element={<Clothes productHandler={handlerProduct} type='Bags' />}
+          ></Route>
+          <Route
+            path='/clothesitem'
+            element={<ClothesItem product={product} />}
+          ></Route>
         </Routes>
       </main>
       <footer>
