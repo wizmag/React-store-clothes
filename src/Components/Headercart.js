@@ -3,7 +3,7 @@ import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import { Cartcontext } from '../Context/Cartcontext';
 
 const Headercart = () => {
-  const cartCtx = useContext(Cart);
+  const cartCtx = useContext(Cartcontext);
 
   const numberOfCartItems = cartCtx.items.reduce((accumulator, item) => {
     return accumulator + item.amount;
