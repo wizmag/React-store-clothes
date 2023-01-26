@@ -40,7 +40,7 @@ const Home = () => {
         swipeable={true}
         emulateTouch={true}
         thumbWidth={200}
-        showThumbs={true}
+        showThumbs={false}
         useKeyboardArrows={true}
       >
         {descript.map((item) => (
