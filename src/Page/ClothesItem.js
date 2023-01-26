@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { db } from '../Firebase';
 import { getDoc, doc } from 'firebase/firestore';
 import SizeGroup from '../Components/Sizegroup';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
 const ClothesItem = ({ product }) => {
   const [data, setData] = useState([]);
@@ -14,6 +15,8 @@ const ClothesItem = ({ product }) => {
     };
     getItem();
   }, [product]);
+
+  const handlerSize = () => {};
 
   return (
     <div className='w-full h-full p-10 flex justify-center'>
@@ -30,13 +33,16 @@ const ClothesItem = ({ product }) => {
             <div className='font-bold text-2xl'>{data.name}</div>
             <div className='text-xl'>{data.description}</div>
           </div>
-          <SizeGroup />
-          {/* <div>Sizes</div> */}
+          <SizeGroup choiceSize={handlerSize} />
           <div className='flex justify-between'>
             <div className='text-3xl font-bold text-green-600'>
               {data.price}$
             </div>
-            <div>add</div>
+            <ShoppingCartCheckoutIcon
+              className='cursor-pointer active:scale-125'
+              fontSize='large'
+              color='success'
+            />
           </div>
         </section>
       </div>
