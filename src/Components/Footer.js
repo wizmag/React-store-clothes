@@ -16,25 +16,25 @@ const Footer = () => {
       <section className='flex-1 flex justify-center'>
         <div>
           <div className='font-bold mb-3 italic'>Company</div>
-          {company_item.map((item) => (
-            <ul>
+          <ul>
+            {company_item.map((item) => (
               <li className='cursor-pointer hover:underline' key={item}>
                 {item}
               </li>
-            </ul>
-          ))}
+            ))}
+          </ul>
         </div>
       </section>
       <section className='flex-1 flex justify-center'>
         <div>
           <div className='font-bold mb-3 italic'>Contacts</div>
-          {contacts_item.map((item) => (
-            <ul>
+          <ul>
+            {contacts_item.map((item) => (
               <li className='cursor-pointer hover:underline' key={item}>
                 {item}
               </li>
-            </ul>
-          ))}
+            ))}
+          </ul>
         </div>
       </section>
       <section className='flex-1 flex justify-center'>
