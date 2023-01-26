@@ -1,9 +1,9 @@
 import React from 'react';
-import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../Context/Authcontext';
 import { ToastContainer, toast } from 'react-toastify';
 import Sticky from 'react-stickynode';
+import Headercart from './Headercart';
 
 const Titles = () => {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ const Titles = () => {
           </p>
           <div></div>
         </div>
-        <div className='flex justify-between items-center gap-10 text-xl'>
+        <div className='flex justify-between items-center gap-20 text-xl'>
           {currentUser ? (
             <p className='font-bold text-lime-700 text-2xl'>
               {currentUser.email}
@@ -68,11 +68,7 @@ const Titles = () => {
               Log In
             </p>
           )}
-          <ShoppingCartRoundedIcon
-            fontSize='large'
-            color='success'
-            className='cursor-pointer'
-          />
+          <Headercart />
         </div>
       </div>
       <ToastContainer
