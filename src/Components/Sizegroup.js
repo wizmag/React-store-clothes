@@ -23,14 +23,18 @@ const sizes = [
     index: 5,
   },
 ];
-const SizeGroup = () => {
+const SizeGroup = ({ choiceSize }) => {
   const [selected, setSelected] = useState('');
+  const handlerSize = (value) => {
+    setSelected(value);
+    choiceSize(selected);
+  };
 
   return (
     <div className='w-full px-4 py-16'>
       <div className='mx-auto w-full max-w-md'>
         <div className='text-xl font-bold'>Sizes</div>
-        <RadioGroup value={selected} onChange={setSelected}>
+        <RadioGroup value={selected} onChange={handlerSize}>
           <div className='space-y-2'>
             {sizes.map((size) => (
               <RadioGroup.Option
